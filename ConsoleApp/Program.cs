@@ -1,4 +1,4 @@
-﻿namespace MiniNotion
+﻿namespace MiniNotion.ConsoleApp
 {
     internal class Program
     {
