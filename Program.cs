@@ -1,10 +1,12 @@
-﻿namespace MiniNotion
+﻿using MiniNotion.Data;
+
+namespace MiniNotion
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            using var db = new AppDbContext();
         }
     }
 }
