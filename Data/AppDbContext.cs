@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection.Emit;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MiniNotion.Core.Entities;
 
 namespace MiniNotion.Data;
@@ -14,8 +12,11 @@ public class AppDbContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer(
-                "Server=.;Database=MiniNotionDb;Trusted_Connection=True;TrustServerCertificate=True;");
+            var dbPath = Path.Combine(
+                AppContext.BaseDirectory,
+                "MiniNotion.db");
+
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
     }
 
