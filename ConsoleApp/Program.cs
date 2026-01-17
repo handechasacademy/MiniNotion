@@ -1,10 +1,10 @@
-﻿namespace MiniNotion.ConsoleApp
+﻿using MiniNotion.Data;
+using MiniNotion.Core.Entities;
+
+class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main(string[] args)
-        {
-            using var db = new AppDbContext();
-        }
+        using var context = new AppDbContext();
     }
 }
