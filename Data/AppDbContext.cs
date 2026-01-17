@@ -8,6 +8,8 @@ public class AppDbContext : DbContext
     public DbSet<Page> Pages { get; set; } = null!;
     public DbSet<PageContent> PageContents { get; set; } = null!;
 
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)

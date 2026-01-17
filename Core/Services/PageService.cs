@@ -43,9 +43,9 @@ namespace MiniNotion.Core.Services
                 .FirstOrDefault(p => p.Id == id && !p.IsArchived);
         }
 
-        public void EditPage(int id, string newTitle)
+        public void EditPage(int idInput, string newTitle)
         {
-            var page = GetPageById(id);
+            var page = GetPageById(idInput);
             if (page == null)
             {
                 throw new InvalidOperationException("Page not found.");
