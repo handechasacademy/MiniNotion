@@ -1,10 +1,22 @@
-﻿using MiniNotion.Data;
-using MiniNotion.Core.Entities;
+﻿using MiniNotion.Core.Services;
+using MiniNotion.Data;
+using Microsoft.EntityFrameworkCore;
 
-class Program
+namespace MiniNotion.ConsoleApp
 {
-    static void Main()
+    internal class Program
     {
-        using var context = new AppDbContext();
+        static void Main(string[] args)
+        {
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseSqlite("Data Source=mininotion.db")
+                .Options;
+
+            using var context = new AppDbContext(options);
+            var pageService = new PageService(context);           
+            var menu = new ConsoleMenu(pageService);
+
+            menu.Run();
+        }
     }
 }
